@@ -1,0 +1,491 @@
+package org.apache.jsp;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.jsp.*;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import com.java.DB;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.Connection;
+
+public final class userside_jsp extends org.apache.jasper.runtime.HttpJspBase
+    implements org.apache.jasper.runtime.JspSourceDependent {
+
+  private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
+
+  private static java.util.List<String> _jspx_dependants;
+
+  private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
+
+  public java.util.List<String> getDependants() {
+    return _jspx_dependants;
+  }
+
+  public void _jspService(HttpServletRequest request, HttpServletResponse response)
+        throws java.io.IOException, ServletException {
+
+    PageContext pageContext = null;
+    HttpSession session = null;
+    ServletContext application = null;
+    ServletConfig config = null;
+    JspWriter out = null;
+    Object page = this;
+    JspWriter _jspx_out = null;
+    PageContext _jspx_page_context = null;
+
+    try {
+      response.setContentType("text/html;charset=UTF-8");
+      pageContext = _jspxFactory.getPageContext(this, request, response,
+      			null, true, 8192, true);
+      _jspx_page_context = pageContext;
+      application = pageContext.getServletContext();
+      config = pageContext.getServletConfig();
+      session = pageContext.getSession();
+      out = pageContext.getOut();
+      _jspx_out = out;
+      _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
+
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("<html>\n");
+      out.write("<head>\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
+      out.write("        <link href=\"bootstrap/css/admin.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
+      out.write("        <link href=\"bootstrap/css/bootstrap.css\" rel=\"stylesheet\" type=\"text/css\"/> \n");
+      out.write("        <link href=\"bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
+      out.write("        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css\">\n");
+      out.write("        <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js\"></script>\n");
+      out.write("        <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>\n");
+      out.write("        <link href=\"bootstrap/css/userside.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
+      out.write("<title>Home-User</title>\n");
+      out.write("</head>\n");
+      out.write("<body>\n");
+      out.write("    ");
+ 
+    try{
+    String username=(String)session.getAttribute("username");
+    if(username!=null){
+        Connection con = DB.getConnection();
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("select * from users where username ='"+username+"'");
+         while (rs.next()) {
+//        String sql="select name from users where username='"+username+"'";
+        
+       
+
+      out.write("\n");
+      out.write("<nav class=\"navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-4 shadow\">\n");
+      out.write("    <a class=\"navbar-brand col-sm-2 col-md-11 mr-2\" href=\"userside.jsp\"><img class=\"position-absolute\" style=\" top:-10px\"  src=\"image/FEMS LOGO.png\" alt=\"\" width=\"72\" height=\"72\"></a>\n");
+      out.write("<ul class=\"navbar-nav px-3\">\n");
+      out.write("<li class=\"nav-item text-nowrap\"x>\n");
+      out.write("    <a class=\"nav-link\" href=\"index.jsp\">Log out</a>\n");
+      out.write("</li>\n");
+      out.write("</ul>\n");
+      out.write("</nav>       \n");
+      out.write("<div class=\"container-fluid\">\n");
+      out.write("<div class=\"row\">\n");
+      out.write("<nav class=\"col-md-2 d-none d-md-block bg-light sidebar position-absolute\" style=\"top: 90px\">\n");
+      out.write("<div class=\"sidebar-sticky\">        \n");
+      out.write("    <table id=\"myTable\"class=\"info\" style=\"font-size: 12px; \">    \n");
+      out.write("    <thead>\n");
+      out.write("       \n");
+      out.write("    <tr> \n");
+      out.write("    <th name=\"name\">Name:  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;");
+      out.print(rs.getString("fname"));
+      out.write(' ');
+      out.print(rs.getString("lname"));
+      out.write("</th>      \n");
+      out.write("    </tr>\n");
+      out.write("    <tr>\n");
+      out.write("    <th>Student No: &nbsp; ");
+      out.print(rs.getString("studentnumber"));
+      out.write("</th>\n");
+      out.write("    </tr>\n");
+      out.write("    <tr>\n");
+      out.write("    <th>Course: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ");
+      out.print(rs.getString("course"));
+      out.write("</th>  \n");
+      out.write("    </tr>\n");
+      out.write("    <tr>\n");
+      out.write("    <th>Year: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ");
+      out.print(rs.getString("year"));
+      out.write("</th>  \n");
+      out.write("    </tr>\n");
+      out.write("    <tr>\n");
+      out.write("    <th>Section: &nbsp; &nbsp; &nbsp; &nbsp; ");
+      out.print(rs.getString("section"));
+      out.write("</th>  \n");
+      out.write("    </tr>\n");
+      out.write("   \n");
+      out.write("    </thead>\n");
+      out.write("</table>\n");
+      out.write("</div>\n");
+      out.write("</nav>   \n");
+      out.write("    <div id=\"borrowModal\" class=\"modal fade\" role=\"dialog\">\n");
+      out.write("<div class=\"modal-dialog\">\n");
+      out.write("\n");
+      out.write(" Modal content\n");
+      out.write("<div class=\"modal-content\">\n");
+      out.write("<div class=\"modal-header\">\n");
+      out.write("    <img src=\"image/FEMS LOGO.png\" alt= class=\"avatar\">\n");
+      out.write("</div>\n");
+      out.write("<div class=\"modal-body\">          \n");
+      out.write("<form action=\"borrow\" method=\"post\"> \n");
+      out.write("<form class=\"needs-validation\" novalidate>\n");
+      out.write("\n");
+      out.write("<div colspan=\"2\"><center>Borrow Form</center></div>  \n");
+      out.write("<input name=\"user\" style=\"border:0px; width: 100px; color:white;\" value=\"");
+      out.print(rs.getString("username"));
+      out.write("\" >\n");
+      out.write("<div class=\"row\">\n");
+      out.write("<div class=\"col-md-4 order-md-2 mb-4\">\n");
+      out.write("<h4 class=\"d-flex justify-content-between align-items-center mb-3\"></h4>\n");
+      out.write("</div>\n");
+      out.write("<div class=\"col-md-12 order-md-1\">\n");
+      out.write("<form class=\"needs-validation\" novalidate>          \n");
+      out.write("<div class=\"row\">\n");
+      out.write("<div class=\"col-md-0 mb-3\"></div>      \n");
+      out.write("<div class=\"col-md-6 mb-3\">\n");
+      out.write("    <label>First name</label>\n");
+      out.write("    <input type=\"text\" class=\"form-control\" name=\"name\" placeholder=\"\" value=\"");
+      out.print(rs.getString("fname"));
+      out.write("\" required autofocus>\n");
+      out.write("<div class=\"invalid-feedback\">\n");
+      out.write("    Valid first name is required.\n");
+      out.write("</div>\n");
+      out.write("</div>            \n");
+      out.write("<div class=\"col-md-6 mb-3\">\n");
+      out.write("    <label>Last name</label>\n");
+      out.write("    <input type=\"text\" class=\"form-control\" name =\"lname\" placeholder=\"\" value=\"");
+      out.print(rs.getString("lname"));
+      out.write("\" required>\n");
+      out.write("    <div class=\"invalid-feedback\">\n");
+      out.write("    Valid last name is required.\n");
+      out.write("</div>\n");
+      out.write("</div>  \n");
+      out.write("    \n");
+      out.write("</div>\n");
+      out.write("  \n");
+      out.write("<div class=\"row\">\n");
+      out.write("<div class=\"col-md-0 mb-3\"></div>            \n");
+      out.write("<div class=\"col-md-6 mb-3\">\n");
+      out.write("    <label>Email<span class=\"text-muted\">(Optional)</span></label>\n");
+      out.write("    <input type=\"email\" class=\"form-control\" name=\"email\" placeholder=\"you@example.com\" value=\"");
+      out.print(rs.getString("email"));
+      out.write("\" required>\n");
+      out.write("<div class=\"invalid-feedback\">\n");
+      out.write("    Please enter valid Email.\n");
+      out.write("</div>\n");
+      out.write("</div>         \n");
+      out.write("<div class=\"col-md-6 mb-3\">\n");
+      out.write("    <label>Student Number</label>\n");
+      out.write("    <input type=\"text\" class=\"form-control\" name=\"studentnumber\" placeholder=\"20**-*****-MN-0\" value=\"");
+      out.print(rs.getString("studentnumber"));
+      out.write(" \" required>\n");
+      out.write("<div class=\"invalid-feedback\">\n");
+      out.write("    Please enter valid Student Number.\n");
+      out.write("</div>\n");
+      out.write("</div> \n");
+      out.write("</div>\n");
+      out.write("<div class=\"row\">\n");
+      out.write("<div class=\"col-md-0 mb-3\"></div>   \n");
+      out.write("<div class=\"col-md-4 mb-3\">\n");
+      out.write("    <label>Course</label>\n");
+      out.write("    <input type=\"text\" class=\"form-control\" name=\"course\" placeholder=\"\" value=\"");
+      out.print(rs.getString("course"));
+      out.write("\" required autofocus>\n");
+      out.write("    \n");
+      out.write("</div>\n");
+      out.write("<div class=\"col-md-4 mb-3\">\n");
+      out.write("    <label>Year</label>\n");
+      out.write("    <input type=\"text\" class=\"form-control\" name=\"year\" placeholder=\"\" value=\"");
+      out.print(rs.getString("year"));
+      out.write("\" required autofocus>\n");
+      out.write("    \n");
+      out.write("</div>   \n");
+      out.write("<div class=\"col-md-4 mb-3\">\n");
+      out.write("    <label>Section</label>\n");
+      out.write("    <input  id=\"select1\" class=\"d-block\" type=\"text\" class=\"form-control\" name=\"section\" value=\"");
+      out.print(rs.getString("section"));
+      out.write("\" required>\n");
+      out.write("<div class=\"invalid-feedback\">\n");
+      out.write("    Required.\n");
+      out.write("</div>\n");
+      out.write("</div>             \n");
+      out.write("</div>\n");
+      out.write("<div class=\"row\">\n");
+      out.write("<div class=\"col-md-0 mb-3\"></div>   \n");
+      out.write("<div class=\"col-md-4 mb-3\">\n");
+      out.write("    <label>Item</label>\n");
+      out.write("    <input type=\"text\" class=\"form-control\" name=\"item\" placeholder=\"\" value=\"\" required autofocus>\n");
+      out.write("    \n");
+      out.write("</div>\n");
+      out.write("<div class=\"col-md-4 mb-3\">\n");
+      out.write("    <label>Quantity</label>\n");
+      out.write("    <input type=\"text\" class=\"form-control\" name=\"quantity\" placeholder=\"\" value=\"\" required autofocus>\n");
+      out.write("</div>   \n");
+      out.write("</div>\n");
+      out.write("<div class=\"modal-footer\"> \n");
+      out.write("    <button class=\" btn btn-lg btn-secondary px-2\"  type=\"button\" data-dismiss=\"modal\">Cancel</button>\n");
+      out.write("    <button class=\" btn btn-lg btn-secondary px-2\" type=\"submit\" name=\"ADD\">Submit</button>\n");
+      out.write("</div> \n");
+      out.write("\n");
+      out.write("</div>     \n");
+      out.write("</div>\n");
+      out.write("</form>\n");
+      out.write("</div>\n");
+      out.write("</div>\n");
+      out.write("</div>\n");
+      out.write("</div>\n");
+      out.write("<div id=\"requestModal\" class=\"modal fade\" role=\"dialog\">\n");
+      out.write("<div class=\"modal-dialog\">\n");
+      out.write("\n");
+      out.write("<!-- Modal content-->\n");
+      out.write("<div class=\"modal-content\">\n");
+      out.write("<div class=\"modal-header\">\n");
+      out.write("    <img src=\"image/FEMS LOGO.png\" alt= class=\"avatar\">\n");
+      out.write("</div>\n");
+      out.write("<div class=\"modal-body\">          \n");
+      out.write("<form action=\"addrequest\" method=\"post\"> \n");
+      out.write("<form class=\"needs-validation\" novalidate>          \n");
+      out.write("<div colspan=\"2\"><center>Request Form</center></div>  \n");
+      out.write("<input name=\"user1  \" style=\"border:0px; width: 100px; color:white;\" value=\"");
+      out.print(rs.getString("username"));
+      out.write("\" >\n");
+      out.write("<div class=\"row\">\n");
+      out.write("<div class=\"col-md-4 order-md-2 mb-4\">\n");
+      out.write("<h4 class=\"d-flex justify-content-between align-items-center mb-3\"></h4>\n");
+      out.write("</div>\n");
+      out.write("<div class=\"col-md-12 order-md-1\">\n");
+      out.write("    <form class=\"needs-validation\" novalidate>          \n");
+      out.write("<div class=\"row\">\n");
+      out.write("<div class=\"col-md-0 mb-3\">     \n");
+      out.write("</div>  \n");
+      out.write("<div class=\"col-md-6 mb-3\">\n");
+      out.write("    <label>First name</label>\n");
+      out.write("    <input type=\"text\" class=\"form-control\" name=\"name\" placeholder=\"\" value=\"");
+      out.print(rs.getString("fname"));
+      out.write("\" required autofocus>\n");
+      out.write("<div class=\"invalid-feedback\">\n");
+      out.write("    Valid first name is required.\n");
+      out.write("</div>\n");
+      out.write("</div>           \n");
+      out.write("<div class=\"col-md-6 mb-3\">\n");
+      out.write("    <label>Last name</label>\n");
+      out.write("    <input type=\"text\" class=\"form-control\" name =\"lname\" placeholder=\"\" value=\"");
+      out.print(rs.getString("lname"));
+      out.write("\" required>\n");
+      out.write("    <div class=\"invalid-feedback\">\n");
+      out.write("    Valid last name is required.\n");
+      out.write("</div>\n");
+      out.write("</div>   \n");
+      out.write("</div>\n");
+      out.write("<div class=\"row\">\n");
+      out.write("<div class=\"col-md-0 mb-3\"></div>            \n");
+      out.write("<div class=\"col-md-6 mb-3\">\n");
+      out.write("    <label>Email<span class=\"text-muted\">(Optional)</span></label>\n");
+      out.write("    <input type=\"email\" class=\"form-control\" name=\"email\" placeholder=\"you@example.com\" value=\"");
+      out.print(rs.getString("email"));
+      out.write("\" required>\n");
+      out.write("<div class=\"invalid-feedback\">\n");
+      out.write("    Please enter valid Email.\n");
+      out.write("</div>\n");
+      out.write("</div>         \n");
+      out.write("<div class=\"col-md-6 mb-3\">\n");
+      out.write("    <label>Student Number</label>\n");
+      out.write("    <input type=\"text\" class=\"form-control\" name=\"studentnumber\" placeholder=\"20**-*****-MN-0\" value=\"");
+      out.print(rs.getString("studentnumber"));
+      out.write("\" required>\n");
+      out.write("<div class=\"invalid-feedback\">\n");
+      out.write("    Please enter valid Student Number.\n");
+      out.write("</div>\n");
+      out.write("</div> \n");
+      out.write("</div>\n");
+      out.write("<div class=\"row\">\n");
+      out.write("<div class=\"col-md-0 mb-3\"></div>   \n");
+      out.write("<div class=\"col-md-4 mb-3\">\n");
+      out.write("    <label>Course</label>\n");
+      out.write("    <input type=\"text\" class=\"form-control\" name=\"course\" placeholder=\"\" value=\"");
+      out.print(rs.getString("course"));
+      out.write("\" required>\n");
+      out.write("</div>\n");
+      out.write("<div class=\"col-md-4 mb-3\">\n");
+      out.write("    <label>Year</label>\n");
+      out.write("    <input type=\"text\" class=\"form-control\" name=\"year\" placeholder=\"\" value=\"");
+      out.print(rs.getString("year"));
+      out.write("\" required>\n");
+      out.write("</div>   \n");
+      out.write("<div class=\"col-md-4 mb-3\">\n");
+      out.write("    <label>Section</label>\n");
+      out.write("    <input id=\"select1\" class=\"d-block w-100\" type=\"text\" class=\"form-control\" name=\"section\" placeholder=\"\" value=\"");
+      out.print(rs.getString("section"));
+      out.write("\" required>\n");
+      out.write("</div>\n");
+      out.write("<div class=\"invalid-feedback\">\n");
+      out.write("    Required.\n");
+      out.write("</div>\n");
+      out.write("</div>             \n");
+      out.write("<div class=\"row\">\n");
+      out.write("<div class=\"col-md-0 mb-3\"></div> \n");
+      out.write("<div class=\"col-md-12 mb-1\">\n");
+      out.write("    <label>Request Details</label>\n");
+      out.write("    <input type=\"text\" class=\"form-control d-block \" name=\"requestdetails\" placeholder=\"\" value=\"\" required style = \"height:150%;\"> \n");
+      out.write("</div>\n");
+      out.write("<div class=\"invalid-feedback\">\n");
+      out.write("</div>\n");
+      out.write("<div class=\"col-md-6 mb-3\">\n");
+      out.write("<div class=\"invalid-feedback\">\n");
+      out.write("    Please enter valid Student Number.\n");
+      out.write("</div>\n");
+      out.write("</div>\n");
+      out.write("</div>\n");
+      out.write("<div class=\"modal-footer\" style=\"margin-top: 50px; \"> \n");
+      out.write("    \n");
+      out.write("    <input type=\"text\" class=\"form-control\" name=\"approval\"  value=\"pending\" disabled style=\"width: 80px; margin-right: 190px;\"> \n");
+      out.write("    <button class=\" btn btn-lg btn-secondary px-2 \"  type=\"button\" data-dismiss=\"modal\">Cancel</button>\n");
+      out.write("    <button class=\" btn btn-lg btn-secondary px-2\"   type=\"submit\" name=\"Addrequest\">Submit</button>\n");
+      out.write("</div>\n");
+      out.write("</div>\n");
+      out.write("</div>\n");
+      out.write("</form>\n");
+      out.write("</div>\n");
+      out.write("</div>\n");
+      out.write("</div>\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("<main role=\"main\" class=\"col-md-9 ml-sm-auto col-lg-10 px-2\">\n");
+      out.write("<div class=\"d-flex justify-content-between flex-wrap  align-items-center pb-1 mb-5 border-bottom\">\n");
+      out.write("<a class=\"btn btn-lg btn-secondary \"data-toggle=\"modal\" data-target=\"#borrowModal\">Borrow</a>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<center color><h2> Welcome ");
+      out.print(rs.getString("fname"));
+      out.write(' ');
+      out.print(rs.getString("lname"));
+      out.write("!</h2></center>\n");
+      out.write("\n");
+      out.write("<a class=\" btn btn-lg btn-secondary px-3\" data-toggle=\"modal\" data-target=\"#requestModal\">Request</a>\n");
+
+}
+}        }
+catch (Exception e) {
+out.println(e);
+                    }
+
+      out.write("\n");
+      out.write("<table class=\"blueTable\" style=\"height: 188px;\" width=\"340\">\n");
+      out.write("<thead>\n");
+      out.write("    \n");
+      out.write("<th>Borrow NO.</th>\n");
+      out.write("            <th>Name</th>\n");
+      out.write("            <th>Student Number</th>\n");
+      out.write("            <th>Course</th>\n");
+      out.write("            <th>Year</th>\n");
+      out.write("            <th>Section</th>\n");
+      out.write("            <th>Email</th>\n");
+      out.write("            <th>Item</th>\n");
+      out.write("            <th>No. of Items</th>\n");
+      out.write("            <th>Date</th>\n");
+      out.write("            <th>Time</th>\n");
+      out.write("</thead>\n");
+      out.write("<tbody>\n");
+
+        try {   
+            String username=(String)session.getAttribute("username");
+            Connection con = DB.getConnection();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select * from borrow where user = '"+username+"'");
+            while (rs.next()) {
+        
+      out.write("\n");
+      out.write("\n");
+      out.write("        <tr>\n");
+      out.write("            <td>");
+      out.print(rs.getString(1));
+      out.write("</td>\n");
+      out.write("            <td>");
+      out.print(rs.getString(2));
+      out.write("&nbsp;");
+      out.print(rs.getString(3));
+      out.write("</td>\n");
+      out.write("            <td>");
+      out.print(rs.getString(5));
+      out.write("</td>\n");
+      out.write("            <td>");
+      out.print(rs.getString(6));
+      out.write("</td>\n");
+      out.write("            <td>");
+      out.print(rs.getString(7));
+      out.write("</td>\n");
+      out.write("            <td>");
+      out.print(rs.getString(8));
+      out.write("</td>\n");
+      out.write("            <td>");
+      out.print(rs.getString(4));
+      out.write("</td>\n");
+      out.write("            <td>");
+      out.print(rs.getString(9));
+      out.write("</td>\n");
+      out.write("            <td>");
+      out.print(rs.getString(10));
+      out.write("</td>\n");
+      out.write("            <td>");
+      out.print(rs.getString(11));
+      out.write("</td>\n");
+      out.write("            <td>");
+      out.print(rs.getString(12));
+      out.write("</td>\n");
+      out.write("        </tr>\n");
+      out.write("        ");
+
+                }
+            } catch (Exception e) {
+                out.println(e);
+            }
+        
+      out.write("\n");
+      out.write("    \n");
+      out.write("</tbody>\n");
+      out.write("<tfoot>\n");
+      out.write("<tr>\n");
+      out.write("<td colspan=\"12\">\n");
+      out.write("<div class=\"links\"><a href=\"#\">&laquo;</a> <a class=\"active\" href=\"#\">1</a> <a href=\"#\">2</a> <a href=\"#\">3</a> <a href=\"#\">4</a> <a href=\"#\">&raquo;</a></div>\n");
+      out.write("<div class=\"dropdown\" style=\"color:black; margin-left: 1000px;\">\n");
+      out.write("<a class=\"nav-link dropdown-toggle\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Transaction</a>\n");
+      out.write("<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">\n");
+      out.write("<a class=\"dropdown-item\" href=\"userside.jsp\">Borrow</a>\n");
+      out.write("<a class=\"dropdown-item\" href=\"trans.jsp\">Request</a>\n");
+      out.write("</div>\n");
+      out.write("</div>\n");
+      out.write("</td>\n");
+      out.write("</tr>\n");
+      out.write("</tfoot>\n");
+      out.write("</table> \n");
+      out.write("</div>\n");
+      out.write("</main>    \n");
+      out.write("</div>\n");
+      out.write("</div>\n");
+      out.write("</body>\n");
+      out.write("</html>\n");
+    } catch (Throwable t) {
+      if (!(t instanceof SkipPageException)){
+        out = _jspx_out;
+        if (out != null && out.getBufferSize() != 0)
+          out.clearBuffer();
+        if (_jspx_page_context != null) _jspx_page_context.handlePageException(t);
+        else throw new ServletException(t);
+      }
+    } finally {
+      _jspxFactory.releasePageContext(_jspx_page_context);
+    }
+  }
+}
